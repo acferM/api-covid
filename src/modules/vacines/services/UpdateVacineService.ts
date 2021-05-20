@@ -1,3 +1,4 @@
+import Vacine from "../infra/typeorm/entities/Vacine"
 import VacinesRepository from "../infra/typeorm/repositories/VacinesRepository"
 
 interface IRequest {
@@ -15,7 +16,7 @@ class UpdateVacineService {
     manufacturer,
     applications_amount,
     time_between_applications
-  }: IRequest) {
+  }: IRequest): Promise<Vacine> {
     const vacinesRepository = new VacinesRepository()
 
     const vacine = await vacinesRepository.findById(id)

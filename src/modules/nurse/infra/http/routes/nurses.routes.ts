@@ -7,4 +7,10 @@ const nursesController = new NursesController()
 
 nursesRouter.post('/', nursesController.create)
 
+nursesRouter.get('/', nursesController.index)
+
+nursesRouter.put('/:id', nursesController.update)
+
+nursesRouter.delete('/:id', nursesController.delete)
+
 export { nursesRouter }

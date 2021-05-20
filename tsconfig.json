@@ -18,5 +18,11 @@
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
-  }
+  },
+  "exclude": [
+    "./prettier.config.js",
+    "./jest.config.js",
+    "./coverage/*",
+    "babel.config.js"
+  ]
 }

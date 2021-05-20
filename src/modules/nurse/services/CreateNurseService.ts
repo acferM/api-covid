@@ -1,3 +1,4 @@
+import Nurse from "../infra/typeorm/entities/Nurse"
 import NursesRepository from "../infra/typeorm/repositories/NursesRepository"
 
 interface IRequest {
@@ -13,7 +14,7 @@ class CreateNurseService {
     coren,
     formation_year,
     contact
-  }: IRequest) {
+  }: IRequest): Promise<Nurse> {
     const nursesRepository = new NursesRepository()
 
     const nurseExists = await nursesRepository.findByName(name)

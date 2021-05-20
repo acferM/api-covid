@@ -1,3 +1,4 @@
+import Vacine from "../infra/typeorm/entities/Vacine";
 import VacinesRepository from "../infra/typeorm/repositories/VacinesRepository";
 
 interface IRequest {
@@ -13,7 +14,7 @@ class CreateVacineService {
     manufacturer,
     applications_amount,
     time_between_applications
-  }: IRequest) {
+  }: IRequest): Promise<Vacine> {
     const vacinesRepository = new VacinesRepository()
 
     const vacineExists = await vacinesRepository.findByName(name.toLowerCase())
