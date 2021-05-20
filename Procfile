@@ -1,1 +1,1 @@
-web: npm orm-run && node ./dist/shared/infra/http/server.js
+web: ./node_modules/.bin/typeorm migration:run && node ./dist/shared/infra/http/server.js
