@@ -23,6 +23,7 @@
     "./prettier.config.js",
     "./jest.config.js",
     "./coverage/*",
-    "babel.config.js"
+    "babel.config.js",
+    "ormconfig.js"
   ]
 }
