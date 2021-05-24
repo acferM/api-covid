@@ -32,7 +32,6 @@ class Patient {
   @JoinColumn({ name: 'group_id' })
   group: Group
 
-
   @OneToMany(() => Application, application => application.patient, { eager: true })
   applications: Application[]
 

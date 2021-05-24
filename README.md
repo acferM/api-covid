@@ -6,9 +6,7 @@ esta API é uma api de administração, ou seja, alteração de todos os dados, 
 
 # 📄 Documentação
 
-## Entidades:
-
-### **Vacina:**
+## 💉 **Vacina:**
 
 **Campos:**
 
@@ -20,9 +18,11 @@ A vacina tem 5 campos
 4. time_between_applications - Tempo que deve ser esperado entre as aplicações da vacina
 5. applications_amount - quantidade de aplicações que devem ser feitas da vacina
 
-**Rotas**
+---
 
-1. POST - /vacines:
+**Rotas:**
+
+1. POST - /vacines
 
 Request body:
 ```json
@@ -63,7 +63,7 @@ Response JSON:
   }
 ]
 ```
-3. PUT - /vacines/:id :
+3. PUT - /vacines/:id
 
 Request body:
 ```json
@@ -87,11 +87,13 @@ Response JSON:
   "updated_at": "now timestamp"
 }
 ```
-4. DELETE - /vacines/:id :
+4. DELETE - /vacines/:id
 
 Esta requisição não tem resposta, apenas um status 204
 
-### **Grupo:**
+---
+
+## 👴 **Grupo:**
 
 **Campos:**
 
@@ -102,9 +104,11 @@ O grupo tem 4 campos
 3. min_age - idade mínima do grupo
 4. max_age - idade máxima do grupo
 
-**Rotas**
+---
 
-1. POST - /groups:
+**Rotas:**
+
+1. POST - /groups
 
 Request body:
 ```json
@@ -142,7 +146,7 @@ Response JSON:
   }
 ]
 ```
-3. PUT - /groups/:id :
+3. PUT - /groups/:id
 
 Request body:
 ```json
@@ -164,11 +168,13 @@ Response JSON:
   "updated_at": "now timestamp"
 }
 ```
-4. DELETE - /groups/:id :
+4. DELETE - /groups/:id
 
 Esta requisição não tem resposta, apenas um status 204
 
-### **Enfermeiros(as):**
+---
+
+## ⚕ **Enfermeiros(as):**
 
 **Campos:**
 
@@ -180,9 +186,11 @@ O enfermeiro(a) tem 5 campos
 4. formation_year - Ano de formação do enfermeiro
 5. contact - número de contato do médico
 
-**Rotas**
+---
 
-1. POST - /nurses:
+**Rotas:**
+
+1. POST - /nurses
 
 Request body:
 ```json
@@ -223,7 +231,7 @@ Response JSON:
   }
 ]
 ```
-3. PUT - /nurses/:id :
+3. PUT - /nurses/:id
 
 Request body:
 ```json
@@ -247,11 +255,13 @@ Response JSON:
   "updated_at": "now timestamp"
 }
 ```
-4. DELETE - /nurses/:id :
+4. DELETE - /nurses/:id
 
 Esta requisição não tem resposta, apenas um status 204
 
-### **Pacientes:**
+---
+
+## 😷 **Pacientes:**
 
 **Campos:**
 
@@ -263,17 +273,19 @@ O paciente tem 5 campos
 4. group_id - id do grupo no qual o paciente pertencente
 5. applications - aplicações de vacina no paciente
 
-**Rotas**
+---
 
-1. POST - /patients:
+**Rotas:**
+
+1. POST - /patients
 
 Request body:
 ```json
 {
-	"name": "nome_do_paciente",
-	"birthday": "00/00/0000",
-	"individual_characteristics": "características_do_paciente",
-	"group_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  "name": "nome_do_paciente",
+  "birthday": "00/00/0000",
+  "individual_characteristics": "características_do_paciente",
+  "group_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 ```
 
@@ -308,15 +320,13 @@ Response JSON:
   }
 ]
 ```
-3. PUT - /patients/:id :
+3. PUT - /patients/:id
 
 Request body:
 ```json
 {
   "name": "novo_nome_do_paciente",
-	"birthday": "00/00/0001",
-	"individual_characteristics": "novas_características_do_paciente",
-	"group_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxy"
+  "birthday": "00/00/0001","individual_characteristics": "novas_características_do_paciente","group_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxy"
 }
 ```
 
@@ -325,13 +335,121 @@ Response JSON:
 {
   "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "name": "novo_nome_do_paciente",
-	"birthday": "00/00/0001",
-	"individual_characteristics": "novas_características_do_paciente",
-	"group_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxy",
+  "birthday": "00/00/0001",
+  "individual_characteristics": "novas_características_do_paciente",
+  "group_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxy",
   "created_at": "timestamp da criação",
   "updated_at": "now timestamp"
 }
 ```
-4. DELETE - /patients/:id :
+4. DELETE - /patients/:id
+
+Esta requisição não tem resposta, apenas um status 204
+
+---
+
+## 😎 **Aplicações:**
+
+**Campos:**
+
+A aplicação tem 6 campos
+
+1. id - ID da aplicação
+2. date - Data da aplicação da vacina
+3. hour - Hora da vacina
+4. vacine_id - ID da vacina aplicada
+5. applicator_id - ID do enfermeiro que aplicará a vacina
+6. patient_id - ID do paciente que esta sendo vacinado
+
+---
+
+**Rotas:**
+
+1. POST - /applications
+
+Request body:
+```json
+{
+  "date": "00/00/0000",
+  "hour": "00:00",
+  "description": "descrição_da_aplicação",
+  "vacine_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "applicator_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "patient_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+}
+```
+
+Response JSON:
+```json
+{
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "date": "00/00/0000",
+  "hour": "00:00",
+  "description": "descrição_da_aplicação",
+  "vacine_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "applicator_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "patient_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "created_at": "now timestamp",
+  "updated_at": "now timestamp"
+}
+```
+
+2. GET /applications
+
+Response JSON:
+```json
+[
+  {
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "vacine_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "applicator_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "patient_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "date": "00/00/0000",
+    "hour": "00:00",
+    "description": "descrição_da_aplicação",
+    "applicator": {
+      // applicator info
+    },
+    "vacine": {
+      // vacine info
+    }
+  }
+]
+```
+3. PUT - /applications/:id
+
+Request body:
+```json
+{
+  "date": "00/00/0001",
+  "hour": "00:01",
+  "description": "nova_descrição_da_aplicação",
+  "vacine_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxy",
+  "applicator_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxy",
+  "patient_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxy"
+}
+```
+
+Response JSON:
+```json
+{
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "date": "00/00/0001",
+  "hour": "00:01",
+  "description": "nova_descrição_da_aplicação",
+  "vacine_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxy",
+  "applicator_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxy",
+  "patient_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxy",
+  "applicator": {
+    // applicator info
+  },
+  "vacine": {
+    // vacine info
+  },
+  "created_at": "timestamp da criação",
+  "updated_at": "now timestamp"
+}
+```
+4. DELETE - /patients/:id
 
 Esta requisição não tem resposta, apenas um status 204
