@@ -9,4 +9,3 @@ temp/
 coverage
 ormconfig.json
 dist
-ormconfig.js
