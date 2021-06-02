@@ -29,7 +29,7 @@ class ApplicationsController {
 
       return response.json(application)
     } catch (err) {
-      return response.json({ error: err.message })
+      return response.status(400).json({ error: err.message })
     }
   }
 
